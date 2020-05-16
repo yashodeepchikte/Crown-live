@@ -23,7 +23,7 @@ var sections = [
       size: 'large',
       id: 4,
       linkUrl: 'womens',
-      size:"large"
+      
     },
     {
       title: 'mens',
@@ -31,7 +31,7 @@ var sections = [
       size: 'large',
       id: 5,
       linkUrl: 'mens',
-      size:"large"
+   
     }
   ];
 

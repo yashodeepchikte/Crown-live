@@ -10,7 +10,7 @@ function CollectionItem(props){
             </div>
             <div className="collection-footer">
                 <div className="name">{props.name}</div>
-                <div className="price">{props.price}</div>
+                <div className="price">{"₹" + props.price*10}</div>
             </div>
 
         </div>
