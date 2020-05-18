@@ -3,7 +3,7 @@ import "./sign-in.styles.scss";
 import FormInput from "../form-imput/form-input.component"
 import CustomButton from "../custom-button/custom-button.component"
 
-import { signInWithGoogle, createUserProfileDocument } from "../../firebase/firebase.utilis"
+import { signInWithGoogle, auth } from "../../firebase/firebase.utilis"
 class SignIn extends React.Component{
     constructor(){
         super();
@@ -15,6 +15,14 @@ class SignIn extends React.Component{
     }
     handelSubmit = (event)=>{
         event.preventDefault();
+        const {email, password} = this.state;
+        try{
+            auth.signInWithEmailAndPassword(email, password)
+            this.setState({email:"", password:""})
+
+        }catch(error){
+            console.log("there was an errot in sining in", error)
+        }
         this.setState({email:"", password:""})
     }
 

@@ -35,12 +35,12 @@ class SignUp extends React.Component {
             // console.log("password = ", password)
             const {user} = await auth.createUserWithEmailAndPassword(email, password);
             await createUserProfileDoc(user, {displayName})
-            this.state = {
-                displayName:"",
-                email:"",
-                password:"",
-                confirmPassword:""
-            }
+            this.setState({
+                displayName: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+              });
         }catch(error){
             console.log("error in creatinf ther user document",error)
         }
