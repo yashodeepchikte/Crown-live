@@ -4,7 +4,7 @@ import SignIn from "../../components/sign-in/sign-in.component"
 function SignInSignUp(){
     return (
         <div className="sign-in-sign-up">
-            sign-in-sign-up
+            
             <SignIn/>
         </div>
     )
