@@ -1,16 +1,19 @@
+// importing the libaries
 import React from 'react';
 import './App.css';
 import HomePage from "./pages/homepage/hompage.component";
 import {Switch, Route, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
+import { auth,  createUserProfileDoc} from "./firebase/firebase.utilis";
 
-
+// importing the components
 import ShopPage from "./pages/shopPage/shop.component";
 import Header from "./components/header/header.component"
-import "./App.css"
 import SignInSignUpPage from "./pages/sign-in-sign-up/sign-in-sign-up.component"
-import { auth,  createUserProfileDoc} from "./firebase/firebase.utilis";
 import {setCurrentUser} from "./redux/user/user.actions"
+// importing the stylesheet
+import "./App.css"
+
 class App extends React.Component {
   unsubscribeFromAuth = null;
 

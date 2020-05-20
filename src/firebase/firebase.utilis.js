@@ -14,6 +14,8 @@ const config = {
   measurementId: "G-51LVS28R9E"
 };
 
+firebase.initializeApp(config);
+
 export const createUserProfileDoc = async (userAuth, otherData) => {
   if (!userAuth) {
     console.log("Signed out")
@@ -44,7 +46,7 @@ export const createUserProfileDoc = async (userAuth, otherData) => {
 return userRef
 }
 
-firebase.initializeApp(config);
+
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
