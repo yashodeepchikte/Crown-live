@@ -18,9 +18,12 @@ class SignIn extends React.Component{
         const {email, password} = this.state;
         try{
             auth.signInWithEmailAndPassword(email, password)
+                .then((userAuth)=>{console.log("User Authentication", userAuth)})
+                .catch((err) => {alert(err.message)})
             this.setState({email:"", password:""})
 
         }catch(error){
+            alert("Facing some problem in reaching FireBase auth")
             console.log("there was an errot in sining in", error)
         }
         this.setState({email:"", password:""})

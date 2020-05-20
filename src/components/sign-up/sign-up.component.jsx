@@ -27,7 +27,14 @@ class SignUp extends React.Component {
 
         const {displayName, email, password, confirmPassword} = this.state
         if (password !== confirmPassword){
-            alert("passwords dont match")
+            alert("passwords don't match")
+            this.setState({
+                displayName: this.state.displayName,
+                email: this.state.email,
+                password:"",
+                confirmPassword:""
+            })
+            return 
         }
 
         try{
@@ -35,6 +42,7 @@ class SignUp extends React.Component {
             // console.log("password = ", password)
             const {user} = await auth.createUserWithEmailAndPassword(email, password);
             await createUserProfileDoc(user, {displayName})
+                        .then(() => alert("Sign up Successful \n Please login"))
             this.setState({
                 displayName: '',
                 email: '',
@@ -42,7 +50,8 @@ class SignUp extends React.Component {
                 confirmPassword: ''
               });
         }catch(error){
-            console.log("error in creatinf ther user document",error)
+            console.log("error in creating ther user document",error)
+            alert(error.message)
         }
 
     }
