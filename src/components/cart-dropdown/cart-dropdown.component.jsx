@@ -10,26 +10,32 @@ import "./cart-dropdown.styles.scss"
 //  importing redux related files
 import {connect} from "react-redux"
 
-const CartDropdown = ({cartItems, itemCount})=>{
+//  Importing reselect component selectors
+import {selectItemCount} from "../../redux/cart/cart.selectors"
+import {selectCartItems} from "../../redux/cart/cart.selectors"
+import {selectCartValue} from "../../redux/cart/cart.selectors"
+
+const CartDropdown = ({cartItems, itemCount, cartValue})=>{
     return(
         <div className={`cart-dropdown ${itemCount === 0 ? "empty" : ""} `}>
             <div className="cart-items">
                 {itemCount===0 ? "Cart is empty" : cartItems.map(cartItem=> <CartItem item={cartItem} key={cartItem.id} />)}
-                
+            </div>
+            <hr />
+            <div className="cart-value">
+                TOTAL  = ₹{cartValue}
             </div>
             <CustomButton>Go To CHECKOUT</CustomButton>
         </div>
     )
 }
 
-const mapStateToProp = ({cart:{cartItems}}) => {
-    var itemCount = 0;
-    cartItems.forEach(cartItem => {
-        itemCount = itemCount + cartItem.count
-    });       
-    return {cartItems:cartItems, itemCount:itemCount }
+const mapStateToProp = (state) => {
+    const itemCount=selectItemCount(state);
+    const cartItems = selectCartItems(state);
+    const cartValue = selectCartValue(state)
+
+    return { cartItems, itemCount, cartValue }
 }
-
-
 
 export default connect(mapStateToProp)(CartDropdown)

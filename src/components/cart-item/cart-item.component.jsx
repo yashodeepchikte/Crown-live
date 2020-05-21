@@ -11,7 +11,7 @@ const CartItem = (props) => {
             <div className="item-details">
                 <span className="name">{props.item.name}</span>
                 <span className="price">
-                    {props.item.count} X {props.item.price}
+                    {props.item.count} X ₹{props.item.price*10} = ₹{props.item.price*props.item.count*10}
                 </span>
             </div>
         </div>

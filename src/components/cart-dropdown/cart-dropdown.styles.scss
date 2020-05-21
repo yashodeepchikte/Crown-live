@@ -12,7 +12,13 @@
     z-index: 5;
     overflow-y: scroll;
     margin-right:10px;
+    .cart-value{
+        width:100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
 
+    }
 // if we ever want to specifically style the empty array
     // &.empty{
     //     background-color: gray;
