@@ -1,4 +1,5 @@
-var sections = [
+const INITIAL_STATE = {
+sections : [
     {
       title: 'hats',
       imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
@@ -33,6 +34,14 @@ var sections = [
       linkUrl: 'mens',
    
     }
-  ];
+  ]
+};
 
-  export default sections;
+const DirectoryReducer = (state=INITIAL_STATE, action) => {
+    switch (action.type){
+        default:
+            return state;
+    }
+};
+
+export default DirectoryReducer
