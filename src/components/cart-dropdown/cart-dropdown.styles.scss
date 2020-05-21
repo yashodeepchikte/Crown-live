@@ -19,13 +19,11 @@
         align-items: center;
 
     }
-// if we ever want to specifically style the empty array
-    // &.empty{
-    //     background-color: gray;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    // }
+    .empty-message{
+        margin: 50px auto;
+        color: gray;
+        font-size: 20px;
+    }
     .carrt-items{
         height: 240px;
         display: flex;
