@@ -1,6 +1,10 @@
 
+// importing utilities
+import {addItemToCart} from "./cart.utils"
+
 const INITIAL_STATE = {
-    hidden:true
+    hidden:true,
+    cartItems:[]     // [       {    item: {} ,  count: {}     }      ]
 }
 const CartReducer = (currentState = INITIAL_STATE, action) => {
     switch (action.type){
@@ -8,9 +12,15 @@ const CartReducer = (currentState = INITIAL_STATE, action) => {
             return {
                 ...currentState,
                 hidden: !currentState.hidden
+            };
+        case "ADD_ITEM":       
+            return {
+                ...currentState,
+                cartItems:addItemToCart(currentState.cartItems, action.payload)
             }
+
         default:
-            return currentState
+            return currentState;
     } 
 }
 

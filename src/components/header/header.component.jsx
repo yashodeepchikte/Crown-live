@@ -13,7 +13,7 @@ import CartDropdown from "../cart-dropdown/cart-dropdown.component"
 // importing stylesheet
 import './header.styles.scss';
 
-const Header = ({ currentUser, hidden }) => (
+const Header = ({ currentUser, hidden, itemCount }) => (
   <div className='header'>
     <Link className='logo-container' to='/'>
       <Logo className='logo' />
@@ -34,7 +34,7 @@ const Header = ({ currentUser, hidden }) => (
           SIGN IN
         </Link>
       )}
-      <CartIcon />
+      <CartIcon itemCount={itemCount}/>
     </div>
         {
             hidden ? null : <CartDropdown />
@@ -43,9 +43,18 @@ const Header = ({ currentUser, hidden }) => (
   </div>
 );
 
-const mapStateToProps = (state)=>({
-currentUser : state.user.currentUser,
-hidden : state.cart.hidden
-})
+const mapStateToProps = (state)=>{
+
+  const cartItems = state.cart.cartItems;
+  var itemCount = 0;
+  cartItems.forEach(cartItem => {
+    itemCount += cartItem.count
+  })
+  return {
+  currentUser : state.user.currentUser,
+  hidden : state.cart.hidden,
+  itemCount:itemCount
+}
+}
 
 export default  connect(mapStateToProps)(Header);

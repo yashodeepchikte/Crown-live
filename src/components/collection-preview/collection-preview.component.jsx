@@ -8,13 +8,13 @@ function CollectionPreview(props){
                 <h1>{props.title}</h1>
                 <div className='preview'> 
                     {props.items.filter((item, idx) => idx < 4).map(item => 
-                        <CollectionItem key={item.id}   name={item.name} price={item.price} imageUrl={item.imageUrl}/> 
+                        <CollectionItem key={item.id}   item={item}/> 
                     )}
                 </div>
             </div>
     )
 }
 
-
+//  name={item.name} price={item.price} imageUrl={item.imageUrl}
 
 export default CollectionPreview;
