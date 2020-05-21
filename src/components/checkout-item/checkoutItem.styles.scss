@@ -21,9 +21,46 @@
     .price {
       width: 23%;
     }
-  
+    
+    .price{
+      margin-left:20px;
+    }
     .quantity {
-      padding-left: 20px;
+    
+      // padding-left: 20px;
+      display:flex;
+      // border:1px solid gray;
+      padding: 0 10px;
+      span{
+        width:33%;
+        text-align: center;
+      }
+      button{
+        
+        border: none;
+        color: white;
+        padding: 0px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+
+        &.add{
+          width:33%;
+          background-color: gray; 
+          &:hover{
+            background-color: #4CAF50; 
+          }
+        }
+        &.dec{
+          width:33%;
+          background-color:#A9A9A9;
+          &:hover{
+            background-color:red;
+          } 
+        }
+
+      }
     }
   
     .remove-button {
