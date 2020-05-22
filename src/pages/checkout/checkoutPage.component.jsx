@@ -3,6 +3,7 @@ import React from "react"
 
 // importing the required components
 import CheckOutItem from "../../components/checkout-item/checkoutItem.component"
+import StripePayment from "../../components/stripe-payment/stripe-payment.component"
 
 //  importing the stylesheet
 import "./checckoutPage.styles.scss"
@@ -44,6 +45,10 @@ const CheckOutPage = ({cartItems, cartValue, dispatch}) => {
             <div className="total">
                 <span>Total = ₹{cartValue}</span>
             </div>
+            <StripePayment amount={cartValue} />
+            <h1 style={{color:"red"}}>Use the folllowing credit card details for Test payment</h1>
+            <h1 style={{color:"red"}}>Card No - 4242 4242 4242 4242  MM/YY = 01/21  CVV = 123</h1>
+            
         </div>
     )
 }
