@@ -2,15 +2,16 @@
     width: 22vw;
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 35vw;
     align-items: center;
     position: relative;
+    margin: 10px;
     margin-bottom: 50PX;
     .custom-button{
       position: absolute;
       opacity:0.7;
       width:70%;
-      bottom:50px;
+      bottom:10vw  ;
       display:none;
     }
     &:hover{

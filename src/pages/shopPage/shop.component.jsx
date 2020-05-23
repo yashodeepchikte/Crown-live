@@ -1,6 +1,7 @@
 import React from "react";
 
 import CollectionOverview from "../../components/collections-overview/collections-overview.component"
+import "./shop-page.stylec.scss"
 
 import {Route} from "react-router-dom"
 import CollectionPage from "../collection/collection.component"
