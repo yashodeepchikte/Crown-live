@@ -5,6 +5,9 @@ import {auth, createUserProfileDoc} from "../../firebase/firebase.utilis"
 
 import './sign-up.styles.scss'
 
+import {setLodingFalse, setLodingTrue} from "../../redux/loading/loading.actions"
+import { connect } from "react-redux"
+
 class SignUp extends React.Component {
     constructor(){
         super()
@@ -25,10 +28,12 @@ class SignUp extends React.Component {
     handelSubmit = async (event) => {
         event.preventDefault()
         // console.log("State = ", this.state)
+        this.props.setLodingTrue();
 
         const {displayName, email, password, confirmPassword} = this.state
         if (password !== confirmPassword){
             alert("passwords don't match")
+            this.props.setLodingFalse();
             this.setState({
                 displayName: this.state.displayName,
                 email: this.state.email,
@@ -43,7 +48,10 @@ class SignUp extends React.Component {
             // console.log("password = ", password)
             const {user} = await auth.createUserWithEmailAndPassword(email, password);
             await createUserProfileDoc(user, {displayName})
-                        .then(() => alert("Sign up Successful \n Please login"))
+                        .then(() =>{
+                            this.props.setLodingFalse();
+                            alert("Sign up Successful \n ")
+                        })
             this.setState({
                 displayName: '',
                 email: '',
@@ -51,6 +59,7 @@ class SignUp extends React.Component {
                 confirmPassword: ''
               });
         }catch(error){
+            this.props.setLodingFalse();
             console.log("error in creating ther user document",error)
             alert(error.message)
         }
@@ -102,4 +111,21 @@ class SignUp extends React.Component {
     }
 }
 
-export default SignUp
+const mapDispatchToProps = dispatch => {
+    return (
+        {
+            setLodingFalse: () => dispatch(setLodingFalse()),
+            setLodingTrue: () => dispatch(setLodingTrue())
+        }
+    )
+}
+
+const mapStateToProps = state => {
+    return (
+        {
+            isLoading: state.loading.isLoading
+        }
+    )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

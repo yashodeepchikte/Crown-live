@@ -7,6 +7,7 @@ import directoryReducer from "./directory/directory.reducer"
 
 import { persistReducer } from "redux-persist"
 import  ShopReducer  from "../redux/shop/shop.reducer"
+import LodingReducer from "../redux/loading/loading.reducer"
 
 const persistConfig = {
     key: 'root',            // where in our reducer do  we want to store
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
     user: userReducer,
     cart: cartReducer,
     directory: directoryReducer,
-    shop:ShopReducer
+    shop:ShopReducer,
+    loading:LodingReducer
 });
 
 
