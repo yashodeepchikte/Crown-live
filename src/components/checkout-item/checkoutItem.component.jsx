@@ -25,7 +25,7 @@ const CheckoutItem = ({cartItem, removeItem, addItem, decreaseCartItem}) => {
                 <span >{cartItem.count}</span>
                 <button className="add" onClick={() => addItem(cartItem)}>+</button>
             </div>
-            <span className="price">{cartItem.price*10}</span>
+            <span className="price">{"₹"+cartItem.price*10}</span>
             
             <div className="remove-button" onClick={() => removeItem(cartItem)}>&#10005;</div>
         </div>

@@ -25,7 +25,7 @@ class SignIn extends React.Component{
         try{
             auth.signInWithEmailAndPassword(email, password)
                 .then((userAuth)=>{this.props.setLodingFalse();console.log("User Authentication", userAuth)})
-                .catch((err) => {alert(err.message)})
+                .catch((err) => {this.props.setLodingFalse();alert(err.message); this.setState({email:this.state.email, password:this.state.password}) })
             this.setState({email:"", password:""})
 
         }catch(error){
