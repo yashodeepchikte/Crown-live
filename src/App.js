@@ -25,7 +25,9 @@ class App extends React.Component {
 
   componentDidMount() {
     const { setCurrentUser } = this.props;
-
+//  the auth library will always listen for atate changes eveb if the  component is unmounted 
+// the auth.onAuthStateChange is a subscription returns a function that can be called to stop teh subscriotion
+// and here we have assigned it to the unsubscribeFromAuth
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       // alert("Auth state changed")
       if (userAuth) {
