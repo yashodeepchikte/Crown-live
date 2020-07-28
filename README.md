@@ -3,4 +3,4 @@
 If you want to contribute do note that <br/>
 For deployment to heroku,  yarn was used so don't use npm because that will create .lock file conflicts
 
-For state management I used redux and plan to counvert it into the react hooks pattern and context api
+As of now for State management Redux is used I plan on Counverting it to context api and hooks 
