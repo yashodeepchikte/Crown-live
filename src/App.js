@@ -39,14 +39,17 @@ class App extends React.Component {
             ...snapShot.data()
           });
         });
+      }else{
+        setCurrentUser(userAuth);
+        console.log("user Signed out")
       }
       console.log("User Authentication = ", userAuth)
-      setCurrentUser(userAuth);
+      
     });
   }
 
   componentWillUnmount() {
-    alert("Component will unmount triggred")
+    alert("the APP Component will unmount  funtion triggred")
     this.unsubscribeFromAuth();
   }
 
